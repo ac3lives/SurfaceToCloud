@@ -1,0 +1,24 @@
+<HTA:APPLICATION
+  APPLICATIONNAME="Testing - Close me"
+  SCROLL="auto"
+  SHOWINtASKBAR="yes"
+  wINdowSTaTE="normal"
+>
+
+<!DOCTYPE html>
+<body>
+You may now close this window. Thank you for testing the HTA!
+</body>
+<script language="javascript">
+
+	var url = "REPLACEURLHERE";
+	var openie = "cmd /k start iexplore.exe " + url + "/report.html?msg=HTA+WScript.Shell+Executed+Internet+Explorer";
+	new ActiveXObject('Wscript.Shell').Run(openie, 0, false);
+
+	var app = new ActiveXObject("Shell.Application")
+    app.ShellExecute("C:\\Program Files\\Internet Explorer\\iexplore.exe", url + "/report.html?msg=HTA+Shell.Application+Executed+Internet+Explorer", "", "open", 0)
+
+
+
+</script>
+</html>
