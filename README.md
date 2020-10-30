@@ -56,3 +56,7 @@ access-macro-test.accde | Microsoft Access Macro as an Executable Only File (acc
 ## Features to Add
 * Not sure if it is worth it, or to do this once a payload stager method has been selected, but determine possibile usage of common LoLBINs?
 * More pop-ups.. but maybe add Shell.Application checks to all Macro payloads and not just HTAs, since some NG-AV engines block WScript.Shell's .Run but not Shell.Application.
+
+
+### Credit:
+We use GadgetToJScript in the HTA. Thanks med0x2e! [https://github.com/med0x2e/GadgetToJScript]
