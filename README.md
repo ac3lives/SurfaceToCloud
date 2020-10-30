@@ -32,11 +32,12 @@ optional arguments:
 **Example: Serve files from the ./payload-output directory and listen for resposnes, but do not re-generate payloads**
 ```SurfaceToCloud.py --host 192.168.1.10 --run-server --serve-files```
 
+*Note: If using --serve-files, downloads are accessible at /requestfiles.html*
 
 ## Payload Reporting / Callbacks
 Payloads call back to the server using HTTP, sending a message indicating that they ran. The table below indicates all available staging file types, their included call-back messages (some files have multiple call-backs, testing for things like WScript.Shell usage ontop of general Macro execution), and what the messages mean. If you see a message returned to the server, it means that portion of the payload has successfully executed.
 
-*note: Server messages received from payloads are also written to ./server-log.txt*
+*Note: Server messages received from payloads are also written to ./server-log.txt*
 
 Payload File Name | Description | Callback Messages
 ------------------------- | -------------------- | -----------------
