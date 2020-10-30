@@ -32,11 +32,12 @@ optional arguments:
 **Example: Serve files from the ./payload-output directory and listen for resposnes, but do not re-generate payloads**
 ```SurfaceToCloud.py --host 192.168.1.10 --run-server --serve-files```
 
+*Note: If using --serve-files, downloads are accessible at http://{url}:{port}/requestfiles.html*
 
 ## Payload Reporting / Callbacks
 Payloads call back to the server using HTTP, sending a message indicating that they ran. The table below indicates all available staging file types, their included call-back messages (some files have multiple call-backs, testing for things like WScript.Shell usage ontop of general Macro execution), and what the messages mean. If you see a message returned to the server, it means that portion of the payload has successfully executed.
 
-*note: Server messages received from payloads are also written to ./server-log.txt*
+*Note: Server messages received from payloads are also written to ./server-log.txt*
 
 Payload File Name | Description | Callback Messages
 ------------------------- | -------------------- | -----------------
@@ -56,3 +57,8 @@ access-macro-test.accde | Microsoft Access Macro as an Executable Only File (acc
 ## Features to Add
 * Not sure if it is worth it, or to do this once a payload stager method has been selected, but determine possibile usage of common LoLBINs?
 * More pop-ups.. but maybe add Shell.Application checks to all Macro payloads and not just HTAs, since some NG-AV engines block WScript.Shell's .Run but not Shell.Application.
+* Add interactive capabilities while the web server is running in the background, collecting received messages and allowing them to be queried, with commands such as "show file downloads" and "show messages returned" to get data, rather than seeing it flow in via an ugly weblog stream.
+
+
+### Credit for external technique usage:
+We use GadgetToJScript in the HTA. Thanks med0x2e! [https://github.com/med0x2e/GadgetToJScript]
