@@ -36,6 +36,8 @@ optional arguments:
 ## Payload Reporting / Callbacks
 Payloads call back to the server using HTTP, sending a message indicating that they ran. The table below indicates all available staging file types, their included call-back messages (some files have multiple call-backs, testing for things like WScript.Shell usage ontop of general Macro execution), and what the messages mean. If you see a message returned to the server, it means that portion of the payload has successfully executed.
 
+*note: Server messages received from payloads are also written to ./server-log.txt*
+
 Payload File Name | Description | Callback Messages
 ------------------------- | -------------------- | -----------------
 word-macro-test.docm | Microsoft Word Macro, tests for the ability to run macros, and then checks if WScript.Shell can execute cmd.exe (runs internet explorer to test and send the message). | Messsage: Word Doc Macro Executed <br> **Meaning:** The macro has successfully executed, allowing for an XMLHTTP Request to be made. <br><br> **Message:** Success Word Doc WScript Execution IExplorer <br> **Meaning:** The macro was able to successfully run WScript.Shell with a .Run("cmd.exe /k start iexplore.exe"). Many payloads use WScript.Shell with .Run, which can be blocked by default by some NG-AV (i.e. Cylance script-block). 
