@@ -58,5 +58,5 @@ access-macro-test.accde | Microsoft Access Macro as an Executable Only File (acc
 * More pop-ups.. but maybe add Shell.Application checks to all Macro payloads and not just HTAs, since some NG-AV engines block WScript.Shell's .Run but not Shell.Application.
 
 
-### Credit:
+### Credit for external technique usage:
 We use GadgetToJScript in the HTA. Thanks med0x2e! [https://github.com/med0x2e/GadgetToJScript]
